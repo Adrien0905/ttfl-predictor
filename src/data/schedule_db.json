@@ -1,0 +1,873 @@
+{
+  "2026-11-09": {
+    "totalGames": 8,
+    "games": [
+      {
+        "team1": "ATL",
+        "team2": "LAL"
+      },
+      {
+        "team1": "CHA",
+        "team2": "CLE"
+      },
+      {
+        "team1": "DET",
+        "team2": "WAS"
+      },
+      {
+        "team1": "TOR",
+        "team2": "MEM"
+      },
+      {
+        "team1": "DAL",
+        "team2": "IND"
+      },
+      {
+        "team1": "HOU",
+        "team2": "DEN"
+      },
+      {
+        "team1": "PHX",
+        "team2": "SAS"
+      },
+      {
+        "team1": "GSW",
+        "team2": "NOP"
+      }
+    ]
+  },
+  "2026-11-10": {
+    "totalGames": 6,
+    "games": [
+      {
+        "team1": "NYK",
+        "team2": "MIL"
+      },
+      {
+        "team1": "PHI",
+        "team2": "BOS"
+      },
+      {
+        "team1": "PHX",
+        "team2": "LAC"
+      },
+      {
+        "team1": "UTA",
+        "team2": "MIA"
+      },
+      {
+        "team1": "SAC",
+        "team2": "ORL"
+      },
+      {
+        "team1": "POR",
+        "team2": "OKC"
+      }
+    ]
+  },
+  "2026-11-11": {
+    "totalGames": 10,
+    "games": [
+      {
+        "team1": "IND",
+        "team2": "WAS"
+      },
+      {
+        "team1": "NYK",
+        "team2": "CLE"
+      },
+      {
+        "team1": "TOR",
+        "team2": "BOS"
+      },
+      {
+        "team1": "CHI",
+        "team2": "SAS"
+      },
+      {
+        "team1": "MEM",
+        "team2": "DEN"
+      },
+      {
+        "team1": "MIL",
+        "team2": "LAL"
+      },
+      {
+        "team1": "NOP",
+        "team2": "BKN"
+      },
+      {
+        "team1": "UTA",
+        "team2": "ORL"
+      },
+      {
+        "team1": "HOU",
+        "team2": "GSW"
+      },
+      {
+        "team1": "POR",
+        "team2": "OKC"
+      }
+    ]
+  },
+  "2026-11-12": {
+    "totalGames": 4,
+    "games": [
+      {
+        "team1": "PHI",
+        "team2": "TOR"
+      },
+      {
+        "team1": "WAS",
+        "team2": "DET"
+      },
+      {
+        "team1": "MIN",
+        "team2": "DAL"
+      },
+      {
+        "team1": "PHX",
+        "team2": "CHA"
+      }
+    ]
+  },
+  "2026-11-13": {
+    "totalGames": 9,
+    "games": [
+      {
+        "team1": "IND",
+        "team2": "NYK"
+      },
+      {
+        "team1": "ORL",
+        "team2": "MIL"
+      },
+      {
+        "team1": "MIA",
+        "team2": "CLE"
+      },
+      {
+        "team1": "CHI",
+        "team2": "ATL"
+      },
+      {
+        "team1": "NOP",
+        "team2": "MEM"
+      },
+      {
+        "team1": "HOU",
+        "team2": "UTA"
+      },
+      {
+        "team1": "SAS",
+        "team2": "GSW"
+      },
+      {
+        "team1": "SAC",
+        "team2": "POR"
+      },
+      {
+        "team1": "LAC",
+        "team2": "OKC"
+      }
+    ]
+  },
+  "2026-11-14": {
+    "totalGames": 5,
+    "games": [
+      {
+        "team1": "NOP",
+        "team2": "DEN"
+      },
+      {
+        "team1": "CLE",
+        "team2": "DAL"
+      },
+      {
+        "team1": "MIA",
+        "team2": "DET"
+      },
+      {
+        "team1": "MEM",
+        "team2": "BKN"
+      },
+      {
+        "team1": "MIN",
+        "team2": "CHI"
+      }
+    ]
+  },
+  "2026-11-15": {
+    "totalGames": 9,
+    "games": [
+      {
+        "team1": "PHI",
+        "team2": "IND"
+      },
+      {
+        "team1": "PHX",
+        "team2": "LAL"
+      },
+      {
+        "team1": "LAC",
+        "team2": "CHA"
+      },
+      {
+        "team1": "UTA",
+        "team2": "SAS"
+      },
+      {
+        "team1": "BOS",
+        "team2": "DAL"
+      },
+      {
+        "team1": "TOR",
+        "team2": "NYK"
+      },
+      {
+        "team1": "WAS",
+        "team2": "HOU"
+      },
+      {
+        "team1": "MIL",
+        "team2": "ATL"
+      },
+      {
+        "team1": "SAC",
+        "team2": "OKC"
+      }
+    ]
+  },
+  "2026-11-16": {
+    "totalGames": 8,
+    "games": [
+      {
+        "team1": "BOS",
+        "team2": "ORL"
+      },
+      {
+        "team1": "CLE",
+        "team2": "CHI"
+      },
+      {
+        "team1": "WAS",
+        "team2": "MEM"
+      },
+      {
+        "team1": "BKN",
+        "team2": "PHI"
+      },
+      {
+        "team1": "MIA",
+        "team2": "HOU"
+      },
+      {
+        "team1": "MIN",
+        "team2": "POR"
+      },
+      {
+        "team1": "NOP",
+        "team2": "GSW"
+      },
+      {
+        "team1": "DEN",
+        "team2": "PHX"
+      }
+    ]
+  },
+  "2026-11-17": {
+    "totalGames": 5,
+    "games": [
+      {
+        "team1": "TOR",
+        "team2": "NYK"
+      },
+      {
+        "team1": "MIN",
+        "team2": "POR"
+      },
+      {
+        "team1": "SAS",
+        "team2": "DET"
+      },
+      {
+        "team1": "LAC",
+        "team2": "UTA"
+      },
+      {
+        "team1": "LAL",
+        "team2": "CHA"
+      }
+    ]
+  },
+  "2026-11-18": {
+    "totalGames": 12,
+    "games": [
+      {
+        "team1": "CLE",
+        "team2": "MEM"
+      },
+      {
+        "team1": "IND",
+        "team2": "HOU"
+      },
+      {
+        "team1": "MIA",
+        "team2": "MIL"
+      },
+      {
+        "team1": "ORL",
+        "team2": "PHI"
+      },
+      {
+        "team1": "BKN",
+        "team2": "CHI"
+      },
+      {
+        "team1": "TOR",
+        "team2": "WAS"
+      },
+      {
+        "team1": "NOP",
+        "team2": "DET"
+      },
+      {
+        "team1": "OKC",
+        "team2": "ATL"
+      },
+      {
+        "team1": "DEN",
+        "team2": "BOS"
+      },
+      {
+        "team1": "DAL",
+        "team2": "GSW"
+      },
+      {
+        "team1": "LAL",
+        "team2": "UTA"
+      },
+      {
+        "team1": "SAC",
+        "team2": "PHX"
+      }
+    ]
+  },
+  "2026-11-19": {
+    "totalGames": 4,
+    "games": [
+      {
+        "team1": "MEM",
+        "team2": "GSW"
+      },
+      {
+        "team1": "MIL",
+        "team2": "POR"
+      },
+      {
+        "team1": "MIN",
+        "team2": "NYK"
+      },
+      {
+        "team1": "SAS",
+        "team2": "LAC"
+      }
+    ]
+  },
+  "2026-11-20": {
+    "totalGames": 9,
+    "games": [
+      {
+        "team1": "ATL",
+        "team2": "CHA"
+      },
+      {
+        "team1": "BKN",
+        "team2": "ORL"
+      },
+      {
+        "team1": "CLE",
+        "team2": "IND"
+      },
+      {
+        "team1": "DET",
+        "team2": "TOR"
+      },
+      {
+        "team1": "CHI",
+        "team2": "WAS"
+      },
+      {
+        "team1": "OKC",
+        "team2": "NOP"
+      },
+      {
+        "team1": "UTA",
+        "team2": "PHX"
+      },
+      {
+        "team1": "DEN",
+        "team2": "HOU"
+      },
+      {
+        "team1": "LAL",
+        "team2": "SAC"
+      }
+    ]
+  },
+  "2026-11-21": {
+    "totalGames": 6,
+    "games": [
+      {
+        "team1": "PHI",
+        "team2": "MIL"
+      },
+      {
+        "team1": "NYK",
+        "team2": "POR"
+      },
+      {
+        "team1": "DAL",
+        "team2": "LAC"
+      },
+      {
+        "team1": "MIN",
+        "team2": "MEM"
+      },
+      {
+        "team1": "SAS",
+        "team2": "NOP"
+      },
+      {
+        "team1": "SAC",
+        "team2": "BOS"
+      }
+    ]
+  },
+  "2026-11-22": {
+    "totalGames": 7,
+    "games": [
+      {
+        "team1": "ATL",
+        "team2": "DET"
+      },
+      {
+        "team1": "MIA",
+        "team2": "OKC"
+      },
+      {
+        "team1": "WAS",
+        "team2": "ORL"
+      },
+      {
+        "team1": "CHI",
+        "team2": "DEN"
+      },
+      {
+        "team1": "UTA",
+        "team2": "DAL"
+      },
+      {
+        "team1": "NYK",
+        "team2": "IND"
+      },
+      {
+        "team1": "GSW",
+        "team2": "BOS"
+      }
+    ]
+  },
+  "2026-11-23": {
+    "totalGames": 10,
+    "games": [
+      {
+        "team1": "CHA",
+        "team2": "MEM"
+      },
+      {
+        "team1": "PHI",
+        "team2": "POR"
+      },
+      {
+        "team1": "IND",
+        "team2": "OKC"
+      },
+      {
+        "team1": "TOR",
+        "team2": "MIL"
+      },
+      {
+        "team1": "MIN",
+        "team2": "BKN"
+      },
+      {
+        "team1": "CHI",
+        "team2": "CLE"
+      },
+      {
+        "team1": "NOP",
+        "team2": "PHX"
+      },
+      {
+        "team1": "HOU",
+        "team2": "LAC"
+      },
+      {
+        "team1": "LAL",
+        "team2": "UTA"
+      },
+      {
+        "team1": "SAC",
+        "team2": "SAS"
+      }
+    ]
+  },
+  "2026-11-24": {
+    "totalGames": 3,
+    "games": [
+      {
+        "team1": "ORL",
+        "team2": "DET"
+      },
+      {
+        "team1": "WAS",
+        "team2": "BOS"
+      },
+      {
+        "team1": "DEN",
+        "team2": "DAL"
+      }
+    ]
+  },
+  "2026-11-25": {
+    "totalGames": 9,
+    "games": [
+      {
+        "team1": "PHI",
+        "team2": "MIA"
+      },
+      {
+        "team1": "CHA",
+        "team2": "CHI"
+      },
+      {
+        "team1": "NYK",
+        "team2": "CLE"
+      },
+      {
+        "team1": "OKC",
+        "team2": "MIN"
+      },
+      {
+        "team1": "MEM",
+        "team2": "LAC"
+      },
+      {
+        "team1": "MIL",
+        "team2": "BKN"
+      },
+      {
+        "team1": "HOU",
+        "team2": "PHX"
+      },
+      {
+        "team1": "GSW",
+        "team2": "SAC"
+      },
+      {
+        "team1": "POR",
+        "team2": "SAS"
+      }
+    ]
+  },
+  "2026-11-27": {
+    "totalGames": 11,
+    "games": [
+      {
+        "team1": "NYK",
+        "team2": "MIA"
+      },
+      {
+        "team1": "DET",
+        "team2": "MIL"
+      },
+      {
+        "team1": "IND",
+        "team2": "PHI"
+      },
+      {
+        "team1": "TOR",
+        "team2": "BKN"
+      },
+      {
+        "team1": "BOS",
+        "team2": "ATL"
+      },
+      {
+        "team1": "MIN",
+        "team2": "MEM"
+      },
+      {
+        "team1": "PHX",
+        "team2": "DAL"
+      },
+      {
+        "team1": "SAS",
+        "team2": "LAL"
+      },
+      {
+        "team1": "UTA",
+        "team2": "DEN"
+      },
+      {
+        "team1": "LAC",
+        "team2": "NOP"
+      },
+      {
+        "team1": "POR",
+        "team2": "GSW"
+      }
+    ]
+  },
+  "2026-11-28": {
+    "totalGames": 5,
+    "games": [
+      {
+        "team1": "WAS",
+        "team2": "ORL"
+      },
+      {
+        "team1": "CHA",
+        "team2": "BKN"
+      },
+      {
+        "team1": "CHI",
+        "team2": "IND"
+      },
+      {
+        "team1": "MIL",
+        "team2": "OKC"
+      },
+      {
+        "team1": "HOU",
+        "team2": "PHI"
+      }
+    ]
+  },
+  "2026-11-29": {
+    "totalGames": 10,
+    "games": [
+      {
+        "team1": "MEM",
+        "team2": "LAL"
+      },
+      {
+        "team1": "SAS",
+        "team2": "BOS"
+      },
+      {
+        "team1": "UTA",
+        "team2": "PHX"
+      },
+      {
+        "team1": "CLE",
+        "team2": "MIA"
+      },
+      {
+        "team1": "DET",
+        "team2": "ORL"
+      },
+      {
+        "team1": "NYK",
+        "team2": "ATL"
+      },
+      {
+        "team1": "TOR",
+        "team2": "DEN"
+      },
+      {
+        "team1": "POR",
+        "team2": "NOP"
+      },
+      {
+        "team1": "GSW",
+        "team2": "LAC"
+      },
+      {
+        "team1": "SAC",
+        "team2": "MIN"
+      }
+    ]
+  },
+  "2026-11-30": {
+    "totalGames": 7,
+    "games": [
+      {
+        "team1": "CHA",
+        "team2": "WAS"
+      },
+      {
+        "team1": "DET",
+        "team2": "DEN"
+      },
+      {
+        "team1": "BKN",
+        "team2": "OKC"
+      },
+      {
+        "team1": "HOU",
+        "team2": "LAL"
+      },
+      {
+        "team1": "DAL",
+        "team2": "BOS"
+      },
+      {
+        "team1": "MIL",
+        "team2": "SAS"
+      },
+      {
+        "team1": "SAC",
+        "team2": "NOP"
+      }
+    ]
+  },
+  "2026-12-01": {
+    "totalGames": 8,
+    "games": [
+      {
+        "team1": "CLE",
+        "team2": "IND"
+      },
+      {
+        "team1": "PHI",
+        "team2": "MEM"
+      },
+      {
+        "team1": "MIA",
+        "team2": "ATL"
+      },
+      {
+        "team1": "CHI",
+        "team2": "NYK"
+      },
+      {
+        "team1": "HOU",
+        "team2": "TOR"
+      },
+      {
+        "team1": "PHX",
+        "team2": "LAC"
+      },
+      {
+        "team1": "POR",
+        "team2": "MIN"
+      },
+      {
+        "team1": "GSW",
+        "team2": "UTA"
+      }
+    ]
+  },
+  "2026-12-02": {
+    "totalGames": 9,
+    "games": [
+      {
+        "team1": "DET",
+        "team2": "MEM"
+      },
+      {
+        "team1": "PHI",
+        "team2": "DEN"
+      },
+      {
+        "team1": "BOS",
+        "team2": "CHA"
+      },
+      {
+        "team1": "DAL",
+        "team2": "ORL"
+      },
+      {
+        "team1": "MIL",
+        "team2": "NYK"
+      },
+      {
+        "team1": "NOP",
+        "team2": "LAL"
+      },
+      {
+        "team1": "OKC",
+        "team2": "BKN"
+      },
+      {
+        "team1": "PHX",
+        "team2": "SAC"
+      },
+      {
+        "team1": "LAC",
+        "team2": "MIN"
+      }
+    ]
+  },
+  "2026-12-03": {
+    "totalGames": 5,
+    "games": [
+      {
+        "team1": "ATL",
+        "team2": "IND"
+      },
+      {
+        "team1": "MIA",
+        "team2": "WAS"
+      },
+      {
+        "team1": "CHI",
+        "team2": "CLE"
+      },
+      {
+        "team1": "SAS",
+        "team2": "TOR"
+      },
+      {
+        "team1": "POR",
+        "team2": "UTA"
+      }
+    ]
+  },
+  "2026-12-04": {
+    "totalGames": 2,
+    "games": [
+      {
+        "team1": "TBD",
+        "team2": "TBD"
+      },
+      {
+        "team1": "TBD",
+        "team2": "TBD"
+      }
+    ]
+  },
+  "2026-12-05": {
+    "totalGames": 2,
+    "games": [
+      {
+        "team1": "TBD",
+        "team2": "TBD"
+      },
+      {
+        "team1": "TBD",
+        "team2": "TBD"
+      }
+    ]
+  },
+  "2026-12-08": {
+    "totalGames": 1,
+    "games": [
+      {
+        "team1": "TBD",
+        "team2": "TBD"
+      }
+    ]
+  }
+}
