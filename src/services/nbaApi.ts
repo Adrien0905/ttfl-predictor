@@ -25,6 +25,8 @@ export interface PickRecommendation {
   drtgModifier: number;
   paceModifier: number;
   rebDelta: number;
+  orebDelta: number;
+  drebDelta: number;
   tovDelta: number;
   ftDeltaPoints: number;
   vorp: number;
@@ -131,6 +133,8 @@ export async function fetchDailyPicks(): Promise<PickRecommendation[]> {
         drtgModifier: evaluation.drtgModifier,
         paceModifier: evaluation.paceModifier,
         rebDelta: evaluation.rebDelta,
+        orebDelta: evaluation.orebDelta,
+        drebDelta: evaluation.drebDelta,
         tovDelta: evaluation.tovDelta,
         ftDeltaPoints: evaluation.ftDeltaPoints,
         vorp: evaluation.currentVorp,

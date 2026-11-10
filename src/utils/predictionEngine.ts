@@ -1,5 +1,6 @@
 import scheduleDb from '../data/schedule_db.json';
 import teamAdvancedStats from '../data/team_advanced_stats.json';
+import type { TeamStats } from '../types';
 
 function readStat(stats: Record<string, unknown>, key: string): number {
   const value = stats[key];
@@ -21,6 +22,8 @@ interface SmartScoreInput {
   fta?: number;
   tov?: number;
   turnover?: number;
+  oreb?: number;
+  dreb?: number;
 }
 
 export interface TtflBreakdown {
@@ -32,7 +35,11 @@ export interface TtflBreakdown {
   projectedScoreV1: number;
   /** Pace adverse / pace moyen de la ligue. 1 si l'équipe est absente. */
   paceModifier: number;
-  /** Rebonds attendus − rebonds moyens. 0 si l'adversaire est absent. */
+  /** Rebonds offensifs attendus − oreb du joueur. */
+  orebDelta: number;
+  /** Rebonds défensifs attendus − dreb du joueur. */
+  drebDelta: number;
+  /** orebDelta + drebDelta. 0 si l'adversaire est absent. */
   rebDelta: number;
   /** Turnovers attendus − turnovers moyens. Soustrait du score V2. */
   tovDelta: number;
@@ -42,16 +49,17 @@ export interface TtflBreakdown {
   projectedScore: number;
 }
 
-interface TeamAdvancedStat {
+interface TeamAdvancedStat extends TeamStats {
   teamAbbr: string;
   pace: number;
   drtg: number;
-  defRebPct: number;
   oppTovPct: number;
   oppFtaRate: number;
 }
 
 interface ProfileDeltas {
+  orebDelta: number;
+  drebDelta: number;
   rebDelta: number;
   tovDelta: number;
   ftDeltaPoints: number;
@@ -70,6 +78,7 @@ function averageOf(values: number[]): number {
 export const leagueAveragePace = averageOf(advancedStats.map((team) => team.pace));
 export const leagueAverageDrtg = averageOf(advancedStats.map((team) => team.drtg));
 export const leagueAvgDefRebPct = averageOf(advancedStats.map((team) => team.defRebPct));
+export const leagueAvgOffRebPct = averageOf(advancedStats.map((team) => team.offRebPct));
 export const leagueAvgTovPct = averageOf(advancedStats.map((team) => team.oppTovPct));
 export const leagueAvgFtaRate = averageOf(advancedStats.map((team) => team.oppFtaRate));
 
@@ -98,28 +107,62 @@ export function getDrtgModifier(opponentAbbreviation: string): number {
   return ratioOrNeutral(statsByTeam.get(opponentAbbreviation.trim().toUpperCase())?.drtg, leagueAverageDrtg);
 }
 
-const NEUTRAL_DELTAS: ProfileDeltas = { rebDelta: 0, tovDelta: 0, ftDeltaPoints: 0 };
+const NEUTRAL_DELTAS: ProfileDeltas = {
+  orebDelta: 0,
+  drebDelta: 0,
+  rebDelta: 0,
+  tovDelta: 0,
+  ftDeltaPoints: 0,
+};
+
+/**
+ * Part de rebonds, fraction (0,33) ou pourcentage (33).
+ * Le complément « 100 − offRebPct » devient alors 1 − part.
+ */
+function reboundShare(value: number): number {
+  if (!Number.isFinite(value)) {
+    return 0;
+  }
+  return Math.abs(value) > 1 ? value / 100 : value;
+}
 
 /**
  * Écarts de profil face à l'adversaire, en plus du DRtg.
- * Rebonds : une défense qui capte plus de rebonds défensifs en retire au joueur.
+ * Offensifs : une défense qui capte plus de rebonds défensifs en retire à l'attaquant.
+ * Défensifs : les rebonds défensifs du joueur suivent les ballons laissés par l'attaque adverse.
  * Turnovers : une défense qui force plus de pertes en ajoute.
  * Lancers : un adversaire qui provoque plus de fautes en ajoute, convertis au pourcentage du joueur (×2).
  */
-function profileDeltas(reb: number, turnover: number, ftm: number, fta: number, opponentAbbreviation: string): ProfileDeltas {
+function profileDeltas(
+  oreb: number,
+  dreb: number,
+  turnover: number,
+  ftm: number,
+  fta: number,
+  opponentAbbreviation: string,
+): ProfileDeltas {
   const opponent = statsByTeam.get(opponentAbbreviation.trim().toUpperCase());
   if (!opponent) {
     return NEUTRAL_DELTAS;
   }
 
-  const rebDelta =
-    opponent.defRebPct > 0 && leagueAvgDefRebPct > 0 ? reb * (leagueAvgDefRebPct / opponent.defRebPct) - reb : 0;
+  const orebDelta =
+    opponent.defRebPct > 0 && leagueAvgDefRebPct > 0 ? oreb * (leagueAvgDefRebPct / opponent.defRebPct) - oreb : 0;
+
+  const opponentOffShare = reboundShare(opponent.offRebPct);
+  const leagueOffShare = reboundShare(leagueAvgOffRebPct);
+  const leagueDefensiveBoards = 1 - leagueOffShare;
+  const drebDelta =
+    leagueDefensiveBoards > 0 ? dreb * ((1 - opponentOffShare) / leagueDefensiveBoards) - dreb : 0;
+
   const tovDelta = leagueAvgTovPct > 0 ? turnover * (opponent.oppTovPct / leagueAvgTovPct) - turnover : 0;
   const ftaDelta = leagueAvgFtaRate > 0 ? fta * (opponent.oppFtaRate / leagueAvgFtaRate) - fta : 0;
   const ftRatio = fta > 0 ? ftm / fta : 0;
 
   return {
-    rebDelta,
+    orebDelta,
+    drebDelta,
+    rebDelta: orebDelta + drebDelta,
     tovDelta,
     ftDeltaPoints: ftaDelta * ftRatio * 2,
   };
@@ -151,13 +194,15 @@ export function explainSmartScore(stats: SmartScoreInput | null | undefined, opp
   const fga = readStat(source, 'fga');
   const fg3a = readStat(source, 'fg3a');
   const fta = readStat(source, 'fta');
+  const oreb = source.oreb == null || source.oreb === '' ? 0 : readStat(source, 'oreb');
+  const dreb = source.dreb == null || source.dreb === '' ? 0 : readStat(source, 'dreb');
 
   const base =
     pts + reb + ast + stl + blk + fgm + fg3m + ftm - (turnover + (fga - fgm) + (fg3a - fg3m) + (fta - ftm));
   const drtgModifier = getDrtgModifier(opponentAbbreviation);
   const projectedScoreV1 = base * drtgModifier;
   const paceModifier = getPaceModifier(opponentAbbreviation);
-  const deltas = profileDeltas(reb, turnover, ftm, fta, opponentAbbreviation);
+  const deltas = profileDeltas(oreb, dreb, turnover, ftm, fta, opponentAbbreviation);
   const paceAdjusted = projectedScoreV1 * paceModifier;
 
   return {
@@ -165,6 +210,8 @@ export function explainSmartScore(stats: SmartScoreInput | null | undefined, opp
     drtgModifier,
     projectedScoreV1: roundScore(projectedScoreV1),
     paceModifier,
+    orebDelta: deltas.orebDelta,
+    drebDelta: deltas.drebDelta,
     rebDelta: deltas.rebDelta,
     tovDelta: deltas.tovDelta,
     ftDeltaPoints: deltas.ftDeltaPoints,
@@ -187,8 +234,10 @@ export interface StrategicEvaluation {
   drtgModifier: number;
   /** Pace adverse / pace moyen. 1 si l'équipe est absente. */
   paceModifier: number;
-  /** Rebonds attendus − rebonds moyens. */
+  /** Somme des écarts offensifs et défensifs. */
   rebDelta: number;
+  orebDelta: number;
+  drebDelta: number;
   /** Turnovers attendus − turnovers moyens. Le score V2 soustrait cette valeur. */
   tovDelta: number;
   /** Points TTFL liés au volume de lancers francs attendu. */
@@ -329,6 +378,8 @@ export function evaluateStrategicPick(
       joueur: player.name,
       adversaire: opponentAbbreviation,
       rebDelta: roundScore(breakdown.rebDelta),
+      orebDelta: roundScore(breakdown.orebDelta),
+      drebDelta: roundScore(breakdown.drebDelta),
       tovDelta: roundScore(breakdown.tovDelta),
       ftDeltaPoints: roundScore(breakdown.ftDeltaPoints),
       scoreV1: projectedScoreV1,
@@ -370,6 +421,8 @@ export function evaluateStrategicPick(
     drtgModifier: breakdown.drtgModifier,
     paceModifier: breakdown.paceModifier,
     rebDelta: breakdown.rebDelta,
+    orebDelta: breakdown.orebDelta,
+    drebDelta: breakdown.drebDelta,
     tovDelta: breakdown.tovDelta,
     ftDeltaPoints: breakdown.ftDeltaPoints,
     currentVorp,

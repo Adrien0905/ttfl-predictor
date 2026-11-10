@@ -106,9 +106,14 @@ export function PlayerDetailModal({ pick, onClose }: PlayerDetailModalProps) {
                 <AdjustmentRow label="Rythme (Pace)" value={formatFactor(breakdown.paceModifier)} />
                 <Text style={styles.profileTitle}>Ajustements de profil</Text>
                 <AdjustmentRow
-                  label="Rebonds"
-                  value={formatSignedPoints(breakdown.rebDelta)}
-                  valueColor={deltaColor(pointsShown(breakdown.rebDelta))}
+                  label="Rebonds offensifs"
+                  value={formatSignedPoints(breakdown.orebDelta)}
+                  valueColor={deltaColor(pointsShown(breakdown.orebDelta))}
+                />
+                <AdjustmentRow
+                  label="Rebonds défensifs"
+                  value={formatSignedPoints(breakdown.drebDelta)}
+                  valueColor={deltaColor(pointsShown(breakdown.drebDelta))}
                 />
                 <AdjustmentRow
                   label="Turnovers"

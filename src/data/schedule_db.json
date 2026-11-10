@@ -1,41 +1,4 @@
 {
-  "2026-11-09": {
-    "totalGames": 8,
-    "games": [
-      {
-        "team1": "ATL",
-        "team2": "LAL"
-      },
-      {
-        "team1": "CHA",
-        "team2": "CLE"
-      },
-      {
-        "team1": "DET",
-        "team2": "WAS"
-      },
-      {
-        "team1": "TOR",
-        "team2": "MEM"
-      },
-      {
-        "team1": "DAL",
-        "team2": "IND"
-      },
-      {
-        "team1": "HOU",
-        "team2": "DEN"
-      },
-      {
-        "team1": "PHX",
-        "team2": "SAS"
-      },
-      {
-        "team1": "GSW",
-        "team2": "NOP"
-      }
-    ]
-  },
   "2026-11-10": {
     "totalGames": 6,
     "games": [

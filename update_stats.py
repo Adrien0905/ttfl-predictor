@@ -28,11 +28,20 @@ def update_stats_and_schedule():
                 "id": str(row['PLAYER_ID']),
                 "name": row['PLAYER_NAME'],
                 "teamAbbr": row['TEAM_ABBREVIATION'],
-                "pts": float(row['PTS']), "reb": float(row['REB']), "ast": float(row['AST']),
-                "stl": float(row['STL']), "blk": float(row['BLK']), "tov": float(row['TOV']),
-                "fgm": float(row['FGM']), "fga": float(row['FGA']), 
-                "fg3m": float(row['FG3M']), "fg3a": float(row['FG3A']),
-                "ftm": float(row['FTM']), "fta": float(row['FTA'])
+                "pts": float(row['PTS']), 
+                "reb": float(row['REB']), 
+                "oreb": float(row['OREB']), # ADDED : Rebonds offensifs du joueur
+                "dreb": float(row['DREB']), # ADDED : Rebonds défensifs du joueur
+                "ast": float(row['AST']),
+                "stl": float(row['STL']), 
+                "blk": float(row['BLK']), 
+                "tov": float(row['TOV']),
+                "fgm": float(row['FGM']), 
+                "fga": float(row['FGA']), 
+                "fg3m": float(row['FG3M']), 
+                "fg3a": float(row['FG3A']),
+                "ftm": float(row['FTM']), 
+                "fta": float(row['FTA'])
             })
             
         with open('src/data/players_db.json', 'w', encoding='utf-8') as f:
@@ -84,12 +93,11 @@ def update_stats_and_schedule():
     # -------------------------------------------------------------
     print("\n🛡️ 3/3 Récupération des statistiques avancées d'équipe (NBA.com)...")
     try:
-        # Pause initiale pour éviter d'enchaîner trop vite après le bloc 1
         time.sleep(1)
 
-        # Advanced (DRtg, Pace, Rebond Défensif)
+        # Advanced (DRtg, Pace, Rebonds Offensifs % et Défensifs %)
         df_adv = leaguedashteamstats.LeagueDashTeamStats(measure_type_detailed_defense='Advanced').get_data_frames()[0]
-        df_adv = df_adv[['TEAM_ID', 'TEAM_NAME', 'DEF_RATING', 'PACE', 'DREB_PCT']]
+        df_adv = df_adv[['TEAM_ID', 'TEAM_NAME', 'DEF_RATING', 'PACE', 'OREB_PCT', 'DREB_PCT']] # ADDED : OREB_PCT
         time.sleep(0.6)
 
         # Four Factors (Fautes concédées, Turnovers provoqués)
@@ -112,10 +120,10 @@ def update_stats_and_schedule():
         df_team = pd.merge(df_team, df_misc, on='TEAM_ID')
 
         # Renommage et formatage
-        df_team.columns = ['teamId', 'teamName', 'drtg', 'pace', 'defRebPct', 'oppFtaRate', 'oppTovPct', 'oppFg3Pct', 'oppPtsPaint']
+        df_team.columns = ['teamId', 'teamName', 'drtg', 'pace', 'offRebPct', 'defRebPct', 'oppFtaRate', 'oppTovPct', 'oppFg3Pct', 'oppPtsPaint']
         df_team = df_team.round(3)
         
-        # Abbréviations manuelles car l'API ne renvoie pas TEAM_ABBREVIATION ici
+        # Abbréviations manuelles
         team_abbr_map = {
             'Atlanta Hawks': 'ATL', 'Boston Celtics': 'BOS', 'Brooklyn Nets': 'BKN', 
             'Charlotte Hornets': 'CHA', 'Chicago Bulls': 'CHI', 'Cleveland Cavaliers': 'CLE', 

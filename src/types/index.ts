@@ -4,6 +4,8 @@ export type PlayerPosition = 'PG' | 'SG' | 'SF' | 'PF' | 'C';
 export interface PlayerAverages {
   pts: number;
   reb: number;
+  oreb: number;
+  dreb: number;
   ast: number;
   stl: number;
   blk: number;
@@ -16,12 +18,20 @@ export interface PlayerAverages {
   ftMissed: number;
 }
 
+export interface TeamStats {
+  defRebPct: number;
+  offRebPct: number;
+}
+
 export interface Player {
   id: string;
   name: string;
   team: string;
   /** Absent du endpoint leaguedashplayerstats. */
   position: PlayerPosition | null;
+  /** Absents des anciennes fiches : traités comme 0 par le moteur. */
+  oreb: number;
+  dreb: number;
   currentAverages: PlayerAverages;
 }
 
@@ -34,6 +44,8 @@ export interface PickRecommendation {
   drtgModifier: number;
   paceModifier: number;
   rebDelta: number;
+  orebDelta: number;
+  drebDelta: number;
   tovDelta: number;
   ftDeltaPoints: number;
   /** ISO 8601 */
